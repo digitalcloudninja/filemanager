@@ -1,0 +1,502 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "OpenAPI definition",
+        "version": "v0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080/v1/api",
+            "description": "Generated server url"
+        }
+    ],
+    "paths": {
+        "/files/csv": {
+            "put": {
+                "tags": [
+                    "Files"
+                ],
+                "summary": "Upload a File",
+                "operationId": "uploadFile",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "File": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "required": [
+                                    "File"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Returns the newly created file resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/File",
+                                    "example": {
+                                        "name": "example.csv",
+                                        "type": "text/csv",
+                                        "size": 1024,
+                                        "_links": {
+                                            "self": "https://api.example.com/v1/api/files/csv/a9effbb3-4178-f6e9-08a7-e9520c4620d7"
+                                        }
+                                    }
+                                }
+                            },
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/File",
+                                    "example": {
+                                        "name": "example.csv",
+                                        "type": "text/csv",
+                                        "size": 1024,
+                                        "_links": {
+                                            "self": "https://api.example.com/v1/api/files/csv/a9effbb3-4178-f6e9-08a7-e9520c4620d7"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Returned when your request is not valid",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetail",
+                                    "example": {
+                                        "type": "about:blank",
+                                        "title": "Bad Request",
+                                        "status": 400,
+                                        "detail": "Required part 'File' is not present.",
+                                        "instance": "/v1/api/files/csv"
+                                    }
+                                }
+                            },
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetail",
+                                    "example": {
+                                        "type": "about:blank",
+                                        "title": "Bad Request",
+                                        "status": 400,
+                                        "detail": "Required part 'File' is not present.",
+                                        "instance": "/v1/api/files/csv"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/files/csv/{id}": {
+            "get": {
+                "tags": [
+                    "Files"
+                ],
+                "summary": "Read a File",
+                "operationId": "getFile",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns the file.",
+                        "content": {
+                            "application/octet-stream": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Returned when the id is invalid",
+                        "content": {
+                            "application/octet-stream": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetail",
+                                    "example": {
+                                        "type": "about:blank",
+                                        "title": "Bad Request",
+                                        "status": 400,
+                                        "detail": "Failed to convert 'id' with value: 'u8c6bd418-a548-3b09-1caf-60ee96b5b533'",
+                                        "instance": "/v1/api/files/csv/u8c6bd418-a548-3b09-1caf-60ee96b5b533"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Returned when the file is not found",
+                        "content": {
+                            "application/octet-stream": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetail",
+                                    "example": {
+                                        "type": "about:blank",
+                                        "title": "Not Found",
+                                        "status": 404,
+                                        "detail": "File ID: '2f5797df-3c7c-9a28-5ebf-3ef70da7bed4' was not found.",
+                                        "instance": "/v1/api/files/csv/2f5797df-3c7c-9a28-5ebf-3ef70da7bed4"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Files"
+                ],
+                "summary": "Delete a File",
+                "operationId": "deleteFile",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully deleted.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "example": {}
+                                }
+                            },
+                            "application/hal+json": {
+                                "schema": {
+                                    "example": {}
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Returned when the id is invalid",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetail",
+                                    "example": {
+                                        "type": "about:blank",
+                                        "title": "Bad Request",
+                                        "status": 400,
+                                        "detail": "Failed to convert 'id' with value: 'u8c6bd418-a548-3b09-1caf-60ee96b5b533'",
+                                        "instance": "/v1/api/files/csv/u8c6bd418-a548-3b09-1caf-60ee96b5b533"
+                                    }
+                                }
+                            },
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetail",
+                                    "example": {
+                                        "type": "about:blank",
+                                        "title": "Bad Request",
+                                        "status": 400,
+                                        "detail": "Failed to convert 'id' with value: 'u8c6bd418-a548-3b09-1caf-60ee96b5b533'",
+                                        "instance": "/v1/api/files/csv/u8c6bd418-a548-3b09-1caf-60ee96b5b533"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Returned when the file is not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetail",
+                                    "example": {
+                                        "type": "about:blank",
+                                        "title": "Not Found",
+                                        "status": 404,
+                                        "detail": "File ID: '0b4b873e-424d-cba3-8165-903f47f23183' was not found.",
+                                        "instance": "/v1/api/files/csv/0b4b873e-424d-cba3-8165-903f47f23183"
+                                    }
+                                }
+                            },
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetail",
+                                    "example": {
+                                        "type": "about:blank",
+                                        "title": "Not Found",
+                                        "status": 404,
+                                        "detail": "File ID: '0b4b873e-424d-cba3-8165-903f47f23183' was not found.",
+                                        "instance": "/v1/api/files/csv/0b4b873e-424d-cba3-8165-903f47f23183"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/files/csv/list": {
+            "get": {
+                "tags": [
+                    "Files"
+                ],
+                "summary": "List All Files",
+                "operationId": "getAllFiles",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Zero-based page index (0..N)",
+                        "required": false,
+                        "schema": {
+                            "default": 0,
+                            "minimum": 0
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "description": "The size of the page to be returned",
+                        "required": false,
+                        "schema": {
+                            "default": 20,
+                            "minimum": 1
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+                        "required": false,
+                        "schema": {
+                            "items": {}
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: Returns a list of files",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PagedModel",
+                                    "example": {
+                                        "_embedded": {
+                                            "files": [
+                                                {
+                                                    "name": "example.csv",
+                                                    "content-type": "text/csv",
+                                                    "size": 315,
+                                                    "_links": {
+                                                        "self": {
+                                                            "href": "http://api.example.com/v1/api/files/csv/6f30d7a5-2f2f-444b-965b-9dd5798e2f8c"
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "_links": {
+                                            "self": {
+                                                "href": "http://api.example.com/v1/api/files/csv/list?page=0&size=20"
+                                            }
+                                        },
+                                        "page": {
+                                            "size": 20,
+                                            "totalElements": 1,
+                                            "totalPages": 1,
+                                            "number": 0
+                                        }
+                                    }
+                                }
+                            },
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PagedModel",
+                                    "example": {
+                                        "_embedded": {
+                                            "files": [
+                                                {
+                                                    "name": "example.csv",
+                                                    "content-type": "text/csv",
+                                                    "size": 315,
+                                                    "_links": {
+                                                        "self": {
+                                                            "href": "http://api.example.com/v1/api/files/csv/6f30d7a5-2f2f-444b-965b-9dd5798e2f8c"
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "_links": {
+                                            "self": {
+                                                "href": "http://api.example.com/v1/api/files/csv/list?page=0&size=20"
+                                            }
+                                        },
+                                        "page": {
+                                            "size": 20,
+                                            "totalElements": 1,
+                                            "totalPages": 1,
+                                            "number": 0
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "File": {
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "The file's unique identifier",
+                        "example": "a9effbb3-4178-f6e9-08a7-e9520c4620d7"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The file's original name",
+                        "example": "example.csv"
+                    },
+                    "content-type": {
+                        "type": "string",
+                        "description": "The file's content-type.",
+                        "example": "text/csv"
+                    },
+                    "size": {
+                        "type": "integer",
+                        "format": "int64",
+                        "description": "The file's size in bytes",
+                        "example": 0
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Link"
+                        }
+                    }
+                }
+            },
+            "Link": {
+                "properties": {
+                    "rel": {
+                        "type": "string"
+                    },
+                    "href": {
+                        "type": "string"
+                    },
+                    "hreflang": {
+                        "type": "string"
+                    },
+                    "media": {
+                        "type": "string"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "deprecation": {
+                        "type": "string"
+                    },
+                    "profile": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ProblemDetail": {
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "detail": {
+                        "type": "string"
+                    },
+                    "instance": {
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "additionalProperties": {}
+                    }
+                }
+            },
+            "PageMetadata": {
+                "properties": {
+                    "size": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "totalElements": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "totalPages": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "number": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }
+            },
+            "PagedModel": {
+                "properties": {
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Link"
+                        }
+                    },
+                    "content": {
+                        "type": "array",
+                        "items": {}
+                    },
+                    "page": {
+                        "$ref": "#/components/schemas/PageMetadata"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,708 @@
+{
+	"info": {
+		"_postman_id": "d27ddc87-7f5d-4d04-bbf6-99cda4de8fc5",
+		"name": "FileManager API Documentation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "30874099-d27ddc87-7f5d-4d04-bbf6-99cda4de8fc5"
+	},
+	"item": [
+		{
+			"name": "Files",
+			"item": [
+				{
+					"name": "Upload a File",
+					"id": "27c71eef-241c-4e20-9976-ad0f010c9c47",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "File",
+									"type": "file",
+									"description": "(Required) ",
+									"src": "/Users/magnuson/Downloads/filemanager-service.zip"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/files/csv",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"files",
+								"csv"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "0850adf6-c389-44c0-9b6d-161edfe76914",
+							"name": "Returns the newly created file resource",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"description": "(Required) ",
+											"key": "File",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/api/files/csv",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"api",
+										"files",
+										"csv"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"name\": \"example.csv\",\n  \"type\": \"text/csv\",\n  \"size\": 1024,\n  \"_links\": {\n    \"self\": \"https://api.example.com/v1/api/files/csv/a9effbb3-4178-f6e9-08a7-e9520c4620d7\"\n  }\n}"
+						},
+						{
+							"id": "50efb413-4f1b-4bb9-b74a-c4a871a2a209",
+							"name": "Returned when your request is not valid",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"description": "(Required) ",
+											"key": "File",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/files/csv",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"files",
+										"csv"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"type\": \"https://knIueRloOSASZE.gxrPn.ebO3F450E,wmf1rIipXtUrJITDRoBkcPSfGn9ERtuBs1.0z\",\n  \"title\": \"incididunt dolore anim\",\n  \"status\": -21238021,\n  \"detail\": \"Ut dolore Duis quis amet\",\n  \"instance\": \"http://zljJ.nnZWJCRP8kz,5u0Q.sHxsj4SP.E1\",\n  \"properties\": {\n    \"consequat_4\": {},\n    \"pariatur_7ad\": {},\n    \"Excepteur_028\": {}\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Read a File",
+					"id": "b81c322b-bbfc-4854-8027-e7aedf72d64a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/octet-stream"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/files/csv/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"files",
+								"csv",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3a9d75d9-3966-40f0-877b-bca52e84c4b5",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "f2b5b310-c323-4f66-b526-ec88e7be867d",
+							"name": "Returns the file.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/octet-stream"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/v1/api/files/csv/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"api",
+										"files",
+										"csv",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "urn:uuid:d14a5e18-cc65-bf63-e057-669445d6b438",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/octet-stream"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"id": "a3564e10-f549-4ebe-aa01-5bf7e97ca28a",
+							"name": "Returned when the id is invalid",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/octet-stream"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/files/csv/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"files",
+										"csv",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "urn:uuid:d14a5e18-cc65-bf63-e057-669445d6b438",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/octet-stream"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"id": "2af5460c-e0c0-45a0-ae86-f1bf7e64564a",
+							"name": "Returned when the file is not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/octet-stream"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/files/csv/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"files",
+										"csv",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "urn:uuid:d14a5e18-cc65-bf63-e057-669445d6b438",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/octet-stream"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Delete a File",
+					"id": "1c1c041f-8255-4031-bbac-29e611ef004c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/files/csv/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"files",
+								"csv",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3a9d75d9-3966-40f0-877b-bca52e84c4b5",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "2faaae78-6b0c-47fa-8c25-07c51597f9cc",
+							"name": "Successfully deleted.",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/v1/api/files/csv/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"api",
+										"files",
+										"csv",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "urn:uuid:d14a5e18-cc65-bf63-e057-669445d6b438",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{}"
+						},
+						{
+							"id": "b617031c-c5ae-4825-b124-e0ec43e43347",
+							"name": "Returned when the id is invalid",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/files/csv/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"files",
+										"csv",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "urn:uuid:d14a5e18-cc65-bf63-e057-669445d6b438",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"type\": \"http://WTJBCTeF.loamp,Xz-LwgujuzGNwcQMe1zby3eHcC-F23mD\",\n  \"title\": \"fugiat tempor aute in\",\n  \"status\": 72069868,\n  \"detail\": \"reprehenderit enim dolore ullamco mollit\",\n  \"instance\": \"http://YsXmZKpyiaoc.izeqGKShCK54Mp\",\n  \"properties\": {\n    \"incididunt__2\": {},\n    \"inf9\": {}\n  }\n}"
+						},
+						{
+							"id": "dce7c3ec-0db3-4652-8b61-d5aaf39281f3",
+							"name": "Returned when the file is not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/files/csv/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"files",
+										"csv",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "urn:uuid:d14a5e18-cc65-bf63-e057-669445d6b438",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"type\": \"https://yVjAyaHUmzSuyIyag.edHBtv.Nds1lO0eC.oTfmjCwWClfXdwXKqqSiJM82GpzF\",\n  \"title\": \"magna laboris\",\n  \"status\": 3346466,\n  \"detail\": \"ea in Lorem aliquip\",\n  \"instance\": \"http://hoTzhiNpayIHiH.jrxgy1Ab\",\n  \"properties\": {\n    \"eiusmod63\": {},\n    \"quis_f\": {},\n    \"dolor85e\": {}\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "List All Files",
+					"id": "fac50181-4f81-4c54-8042-22b1a612314c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/files/csv/list?page=0&size=20&sort=",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"files",
+								"csv",
+								"list"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0",
+									"description": "Zero-based page index (0..N)"
+								},
+								{
+									"key": "size",
+									"value": "20",
+									"description": "The size of the page to be returned"
+								},
+								{
+									"key": "sort",
+									"value": "",
+									"description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "cc59c444-85b2-481a-b1f4-aeac31f0f298",
+							"name": "Success: Returns a list of files",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/v1/api/files/csv/list?page=0&size=20",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"api",
+										"files",
+										"csv",
+										"list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "20"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"_embedded\": {\n    \"files\": [\n      {\n        \"name\": \"example.csv\",\n        \"content-type\": \"text/csv\",\n        \"size\": 315,\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.example.com/v1/api/files/csv/6f30d7a5-2f2f-444b-965b-9dd5798e2f8c\"\n          }\n        }\n      }\n    ]\n  },\n  \"_links\": {\n    \"self\": {\n      \"href\": \"http://api.example.com/v1/api/files/csv/list?page=0&size=20\"\n    }\n  },\n  \"page\": {\n    \"size\": 20,\n    \"totalElements\": 1,\n    \"totalPages\": 1,\n    \"number\": 0\n  }\n}"
+						}
+					]
+				}
+			],
+			"id": "df93ce78-fb2a-41d3-93ca-c352e7977d50"
+		},
+		{
+			"name": "health",
+			"item": [
+				{
+					"name": "health",
+					"id": "0e611e10-6203-402d-b89a-15a8be3dc671",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/actuator/health",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"actuator",
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "info",
+					"id": "dccbc104-bf4b-464d-a62c-cb6c140846c0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/files/actuator/info",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"files",
+								"actuator",
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "openapi specification",
+					"id": "a766a4a8-5c8d-4a0e-a9d0-a040ff63a425",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/files/api-docs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"files",
+								"api-docs"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "e8a9019c-0ad8-4f94-8384-bd4963195ba2"
+		},
+		{
+			"name": "oauth",
+			"item": [
+				{
+					"name": "Obtain Token",
+					"id": "5ca8c5cf-f5d9-47eb-90eb-5c8fd7ecf89b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"client_id\": \"zNjzomyqCo8wpktn0LpcRveYq7354GDl\",\n    \"client_secret\": \"pR3yRnpoTBW0aDNLjRxBKeD-4LxxtVgf7Wu3plR9mJavziYHhanpS-_hdgemcvyh\",\n    \"audience\": \"http://localhost\",\n    \"grant_type\": \"client_credentials\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dev-digitalcloud-ninja.us.auth0.com/oauth/token",
+							"protocol": "https",
+							"host": [
+								"dev-digitalcloud-ninja",
+								"us",
+								"auth0",
+								"com"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "e88f81f5-c440-4717-9a5c-7bb74297e7da"
+		}
+	],
+	"variable": [
+		{
+			"id": "41bdce35-b7a3-48e6-b2ff-c6d57312e37c",
+			"key": "baseUrl",
+			"value": "http://localhost:8080/v1/api",
+			"type": "string"
+		}
+	]
+}
