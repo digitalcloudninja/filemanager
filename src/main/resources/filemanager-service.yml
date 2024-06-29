@@ -1,0 +1,59 @@
+server:
+    port: 8082
+    servlet:
+        context-path: /v1/api
+spring:
+    application:
+        name: files
+    cloud:
+        loadbalancer:
+            enabled: false
+    devtools:
+        add-properties: true
+    datasource:
+        driverClassName: org.h2.Driver
+        url: jdbc:h2:mem:platform;DB_CLOSE_ON_EXIT=FALSE
+    flyway:
+        enabled: false
+    h2:
+        console:
+            enabled: false
+    jpa:
+        database: h2
+        database-platform: org.hibernate.dialect.H2Dialect
+        defer-datasource-initialization: true
+        generate-ddl: true
+        hibernate:
+            ddl-auto: create
+        open-in-view: true
+        properties:
+            hibernate:
+                format_sql: true
+        show-sql: true
+    jta:
+        enabled: true
+management:
+    endpoint:
+        health:
+            enabled: true
+        info:
+            enabled: true
+    endpoints:
+        web:
+            exposure:
+                include:
+                    - 'info'
+                    - 'health'
+            base-path: /${spring.application.name}/actuator
+springdoc:
+    swagger-ui:
+        enabled: false
+    api-docs:
+        enabled: true
+        version: openapi_3_1
+        path: /${spring.application.name}/openapi
+    enable-data-rest: false
+    enable-hateoas: false
+    enable-spring-security: true
+    show-actuator: false
+    use-management-port: false

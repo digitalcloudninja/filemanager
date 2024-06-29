@@ -1,4 +1,4 @@
-package ninja.digitalcloud.cloud.starter;
+package ninja.digitalcloud.cloud.filemanager;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

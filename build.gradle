@@ -24,7 +24,7 @@ repositories {
     mavenCentral()
     maven {
         name = "GitHubPackages"
-        url = uri("https://maven.pkg.github.com/${{project.findProperty("IMAGE_NAME") ?: System.getenv("IMAGE_NAME")}}")
+        url = uri("https://maven.pkg.github.com/digitalcloudninja/filemanager-service")
         credentials {
             username = project.findProperty("USERNAME") ?: System.getenv("USERNAME")
             password = project.findProperty("PKG_TOKEN") ?: System.getenv("PKG_TOKEN")
@@ -33,11 +33,30 @@ repositories {
 }
 
 ext {
+    set('springVersion', "3.3.1")
     set('springCloudVersion', "2023.0.2")
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web:3.3.1'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-api:2.3.0'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+    implementation 'org.springframework.boot:spring-boot-starter-hateoas'
+    //implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
+    implementation 'org.springframework.cloud:spring-cloud-starter-config'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    //implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+    compileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'com.h2database:h2'
+    runtimeOnly 'org.postgresql:postgresql'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    //testImplementation 'org.springframework.security:spring-security-test'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -58,7 +77,7 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/${{project.findProperty("IMAGE_NAME") ?: System.getenv("IMAGE_NAME")}}")
+            url = uri("https://maven.pkg.github.com/digitalcloudninja/filemanager-service")
             credentials {
                 username = project.findProperty("USERNAME") ?: System.getenv("USERNAME")
                 password = project.findProperty("PKG_TOKEN") ?: System.getenv("PKG_TOKEN")
