@@ -1,0 +1,45 @@
+{
+	"id": "83bdd470-e437-468a-9165-ad413bd46f68",
+	"name": "Local (Development)",
+	"values": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:{{port}}/v1/api",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "port",
+			"value": "8080",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "apiKey",
+			"value": "",
+			"type": "secret",
+			"enabled": true
+		},
+		{
+			"key": "basicAuthUsername",
+			"value": "",
+			"type": "secret",
+			"enabled": true
+		},
+		{
+			"key": "basicAuthPassword",
+			"value": "",
+			"type": "secret",
+			"enabled": true
+		},
+		{
+			"key": "bearerToken",
+			"value": "",
+			"type": "secret",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2024-06-29T07:58:49.614Z",
+	"_postman_exported_using": "Postman/11.2.24"
+}
