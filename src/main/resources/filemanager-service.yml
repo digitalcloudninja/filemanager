@@ -1,59 +1,52 @@
+logging:
+    charset:
+        console: UTF-8
+    level:
+        ninja.digitalcloud.cloud.filemanager.*: DEBUG
 server:
-    port: 8082
+    compression:
+        enabled: true
+    error:
+        include-exception: false
+        include-message: always
+        path: /error
+        whitelabel:
+            enabled: false
+    forward-headers-strategy: framework
+    port: 8080
     servlet:
         context-path: /v1/api
 spring:
     application:
-        name: files
-    cloud:
-        loadbalancer:
-            enabled: false
-    devtools:
-        add-properties: true
+        name: filemanager-service
     datasource:
-        driverClassName: org.h2.Driver
-        url: jdbc:h2:mem:platform;DB_CLOSE_ON_EXIT=FALSE
+        password: ${DATABASE_PASSWORD:ChangeMeNow!}
+        url: jdbc:postgresql://${DATABASE_HOST:localhost}:${DATABASE_PORT:5432}/${DATABASE_NAME:postgres}
+        username: ${DATABASE_USERNAME:postgres}
+    docker:
+        compose:
+            enabled: true
+            profiles:
+                active: default
     flyway:
-        enabled: false
-    h2:
-        console:
-            enabled: false
+        create-schemas: true
+        default-schema: filemanager
     jpa:
-        database: h2
-        database-platform: org.hibernate.dialect.H2Dialect
-        defer-datasource-initialization: true
-        generate-ddl: true
+        database: postgresql
         hibernate:
-            ddl-auto: create
+            ddl-auto: update
         open-in-view: true
-        properties:
-            hibernate:
-                format_sql: true
-        show-sql: true
-    jta:
-        enabled: true
-management:
-    endpoint:
-        health:
-            enabled: true
-        info:
-            enabled: true
-    endpoints:
-        web:
-            exposure:
-                include:
-                    - 'info'
-                    - 'health'
-            base-path: /${spring.application.name}/actuator
+    servlet:
+        multipart:
+            file-size-threshold: 2KB
+            max-file-size: 1MB
+            max-request-size: 1MB
 springdoc:
-    swagger-ui:
-        enabled: false
     api-docs:
         enabled: true
-        version: openapi_3_1
-        path: /${spring.application.name}/openapi
+        path: /files/api-docs
+        version: OPENAPI_3_1
     enable-data-rest: false
     enable-hateoas: false
-    enable-spring-security: true
-    show-actuator: false
-    use-management-port: false
+    swagger-ui:
+        enabled: false
