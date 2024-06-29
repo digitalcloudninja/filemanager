@@ -38,6 +38,4 @@ out/
 
 ### Project Specific ###
 /gradle.properties
-
-# Ignore Gradle build output directory
-build
+.postman
