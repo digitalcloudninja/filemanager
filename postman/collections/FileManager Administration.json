@@ -1,0 +1,182 @@
+{
+	"info": {
+		"_postman_id": "54f3609f-62f3-4b53-bcb3-12302f500034",
+		"name": "FileManager Administration",
+		"description": "A file storage service for saving and retrieving files from the cloud.\n\nContact Support:\n Email: developer@example.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "30874099-54f3609f-62f3-4b53-bcb3-12302f500034"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Obtain Token",
+					"id": "87c0d68c-1d40-4a61-8f21-ed010cf4c2ca",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"client_id\": \"zNjzomyqCo8wpktn0LpcRveYq7354GDl\",\n    \"client_secret\": \"pR3yRnpoTBW0aDNLjRxBKeD-4LxxtVgf7Wu3plR9mJavziYHhanpS-_hdgemcvyh\",\n    \"audience\": \"http://localhost\",\n    \"grant_type\": \"client_credentials\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dev-digitalcloud-ninja.us.auth0.com/oauth/token",
+							"protocol": "https",
+							"host": [
+								"dev-digitalcloud-ninja",
+								"us",
+								"auth0",
+								"com"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "84719786-98f4-404b-acd1-2e32e98d29f6"
+		},
+		{
+			"name": "Health",
+			"item": [
+				{
+					"name": "Ping",
+					"id": "cbc3c126-d81d-472f-80b9-b6894863ff7b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/actuator/health",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"actuator",
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Info",
+					"id": "028039e3-8d8f-46a9-99ea-27e425fb53c8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/files/actuator/info",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"files",
+								"actuator",
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OpenAPI Specification",
+					"id": "5d2e9c8d-c78e-4b44-8a62-aaddabd083d1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/files/api-docs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"files",
+								"api-docs"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "ba0724cd-fcd5-4f34-b49e-f9d336f118e1"
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "{{basicAuthUsername}}",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "{{basicAuthPassword}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "685b5de9-8a35-4b97-ab02-ef742d1dbbb6",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "52c0ba92-5bcc-4903-9876-a35dfbeba010",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "cff3d349-fdfc-4ca1-9274-072ba39d9dd1",
+			"key": "port",
+			"value": "8082"
+		},
+		{
+			"id": "cd341bc7-fe31-4638-a427-b35402ee655a",
+			"key": "file",
+			"value": ""
+		}
+	]
+}
