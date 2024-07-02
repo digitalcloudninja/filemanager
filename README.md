@@ -2,19 +2,20 @@
 <a name="readme-top"></a>
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[Gradle-icon]: https://img.shields.io/badge/gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white
-[Docker-icon]: https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker&logoColor=white
-[Java-icon]: https://img.shields.io/badge/java-F80000?style=for-the-badge&logo=oracle&logoColor=white
-[Spring-icon]: https://img.shields.io/badge/spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white
+[Gradle]: https://img.shields.io/badge/gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white
+[Docker]: https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker&logoColor=white
+[Java]: https://img.shields.io/badge/java-F80000?style=for-the-badge&logo=oracle&logoColor=white
+[Spring]: https://img.shields.io/badge/spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white
+[OpenAPI]: https://img.shields.io/badge/openapi-6DB33F?style=for-the-badge&logo=openapiinitiative&logoColor=white
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/digitalcloudninja/filemanager-service.svg?style=for-the-badge)
 ![GitHub Tag](https://img.shields.io/github/v/tag/digitalcloudninja/filemanager-service.svg?style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/digitalcloudninja/filemanager-service.svg?style=for-the-badge)
 
-[![Java JDK 22][Java-icon]](https://docs.gradle.org/current/userguide/userguide.html)
-[![Gradle 8.8][Gradle-icon]](https://docs.gradle.org/current/userguide/userguide.html)
-[![Spring][Spring-icon]](https://spring.io/)
-[![Docker][Docker-icon]](https://docs.gradle.org/current/userguide/userguide.html)
+[![Java JDK 22][Java]](https://docs.gradle.org/current/userguide/userguide.html)
+[![Gradle 8.8][Gradle]](https://docs.gradle.org/current/userguide/userguide.html)
+[![Spring][Spring]](https://spring.io/)
+[![Docker][Docker]](https://docs.gradle.org/current/userguide/userguide.html)
 
 <!-- PROJECT LOGO -->
 <br />
@@ -73,3 +74,5 @@ Use this space to show useful examples of how a project can be used. Additional 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+[![OpenAPI][OpenAPI]](index.json)
