@@ -3,6 +3,19 @@ logging:
         console: UTF-8
     level:
         ninja.digitalcloud.cloud.filemanager.*: DEBUG
+management:
+    endpoint:
+        health:
+            enabled: true
+        info:
+            enabled: true
+    endpoints:
+        web:
+            exposure:
+                include:
+                    - 'info'
+                    - 'health'
+            base-path: /filemanager
 server:
     compression:
         enabled: true
@@ -18,7 +31,7 @@ server:
         context-path: /v1/api
 spring:
     application:
-        name: filemanager-service
+        name: filemanager
     datasource:
         password: ${DATABASE_PASSWORD:ChangeMeNow!}
         url: jdbc:postgresql://${DATABASE_HOST:localhost}:${DATABASE_PORT:5432}/${DATABASE_NAME:postgres}
@@ -44,7 +57,7 @@ spring:
 springdoc:
     api-docs:
         enabled: true
-        path: /files/api-docs
+        path: /filemanager/api-docs
         version: OPENAPI_3_1
     enable-data-rest: false
     enable-hateoas: false
