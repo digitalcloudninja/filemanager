@@ -561,11 +561,35 @@
 			"id": "313897b1-0f4d-4727-a56a-5ab32005ddba"
 		}
 	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "bae62f40-8eeb-4bd1-ad20-e34e65ec370c",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "eac9d8e7-03dd-4d3c-9e42-72500a5b4835",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"variable": [
 		{
-			"id": "15d28834-7d25-46ed-9ee5-075018694a82",
-			"key": "baseUrl",
-			"value": "http://localhost/v1/api",
+			"id": "45c29ab5-f8e6-4d7c-b611-8932f4e1ec0a",
+			"key": "port",
+			"value": "8082",
 			"type": "string"
 		}
 	]

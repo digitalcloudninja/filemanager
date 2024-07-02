@@ -134,7 +134,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "ae63030b-78e1-4ca4-8b92-676cc1970198",
+				"id": "d4e2fdc3-9ded-4644-afd7-f0ce049cf9ee",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -145,7 +145,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "ad48d2fb-bb5e-4fc4-b8fd-b47dd26d1458",
+				"id": "c1b56f25-e837-46e5-8b28-ee9bdb58b5da",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -156,14 +156,9 @@
 	],
 	"variable": [
 		{
-			"id": "c4c714cc-55c7-4d05-b6bf-8c04252ae1e4",
+			"id": "0d7de75c-ea82-444e-91ef-565dfbafd0f5",
 			"key": "port",
 			"value": "8082"
-		},
-		{
-			"id": "351cefbd-2bc2-4948-9b5a-49d9c0a86ca2",
-			"key": "file",
-			"value": ""
 		}
 	]
 }
