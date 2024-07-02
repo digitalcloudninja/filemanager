@@ -3,8 +3,8 @@ spring:
     config:
       discovery:
         enabled: true
-        service-id: configuration-service
-      name: filemanager-service
+        service-id: configuration
+      name: filemanager
 eureka:
   client:
     region: us-east-1

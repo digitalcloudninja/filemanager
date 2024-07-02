@@ -57,7 +57,7 @@ spring:
 springdoc:
     api-docs:
         enabled: true
-        path: /filemanager/api-docs
+        path: /filemanager/openapi
         version: OPENAPI_3_1
     enable-data-rest: false
     enable-hateoas: false
