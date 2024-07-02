@@ -11,8 +11,8 @@
 ![GitHub Tag](https://img.shields.io/github/v/tag/digitalcloudninja/filemanager-service.svg?style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/digitalcloudninja/filemanager-service.svg?style=for-the-badge)
 
-[![Gradle 8.8][Gradle-icon]](https://docs.gradle.org/current/userguide/userguide.html)
 [![Java JDK 22][Java-icon]](https://docs.gradle.org/current/userguide/userguide.html)
+[![Gradle 8.8][Gradle-icon]](https://docs.gradle.org/current/userguide/userguide.html)
 [![Spring][Spring-icon]](https://spring.io/)
 [![Docker][Docker-icon]](https://docs.gradle.org/current/userguide/userguide.html)
 
@@ -23,13 +23,10 @@
     <img src="https://avatars.githubusercontent.com/u/174159620?v=4" alt="Logo" width="160" height="160">
   </a>
 
-<h3 align="center">Sample Application</h3>
+<h1 align="center">Sample Application</h1>
 
   <p align="center">
     project_description
-    <br />
-    <br />
-    <a href="https://github.com/digitalcloudninja/filemanager-"><strong>Explore the Documentation »</strong></a>
    </p>
 </div>
 
@@ -39,7 +36,7 @@
 ## About The Project
 
 Here's a blank template to get started: To avoid retyping too much info.
-
+<a href="https://github.com/digitalcloudninja/filemanager-"><strong>Explore the Documentation »</strong></a>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
