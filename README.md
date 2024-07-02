@@ -11,7 +11,7 @@
 ![GitHub Tag](https://img.shields.io/github/v/tag/digitalcloudninja/filemanager-service.svg?style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/digitalcloudninja/filemanager-service.svg?style=for-the-badge)
 
-[![Gradle 8.8][Gradle-icon]][https://docs.gradle.org/current/userguide/userguide.html]
+[![Gradle 8.8][Gradle-icon]](https://docs.gradle.org/current/userguide/userguide.html)
 [![Java JDK 22][Java-icon]](https://docs.gradle.org/current/userguide/userguide.html)
 [![Spring][Spring-icon]](https://spring.io/)
 [![Docker][Docker-icon]](https://docs.gradle.org/current/userguide/userguide.html)
