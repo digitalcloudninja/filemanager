@@ -30,7 +30,7 @@ import java.util.UUID;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping(path = "/files", produces = {"application/json", "application/hal+json"})
+@RequestMapping(path = "/filemanager", produces = {"application/json", "application/hal+json"})
 @Tag(name = "Files")
 public class FileController {
 
@@ -81,7 +81,7 @@ public class FileController {
                     """))),
     })
     @Operation(operationId = "getAllFiles", summary = "List All Files")
-    @GetMapping(path = "/csv/list")
+    @GetMapping(path = "/files/list")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<PagedModel<EntityModel<File>>> getAllFiles(@ParameterObject Pageable pageable) {
         Page<File> page = fileRepository.findAll(pageable);
@@ -119,7 +119,7 @@ public class FileController {
                                     """)))
     })
     @Operation(operationId = "uploadFile", summary = "Upload a File")
-    @PutMapping(path = "/csv", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PutMapping(path = "/files", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<EntityModel<File>> uploadFile(@RequestParam(name = "File") MultipartFile file) {
         try {
@@ -172,7 +172,7 @@ public class FileController {
                                     """)))
     })
     @Operation(operationId = "getFile", summary = "Read a File")
-    @GetMapping(path = "/csv/{id}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    @GetMapping(path = "/files/{id}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> getFile(@PathVariable UUID id) {
         File file = fileRepository.findById(id).orElseThrow(() -> new FileNotFoundError(id.toString()));
@@ -219,7 +219,7 @@ public class FileController {
                                     """)))
     })
     @Operation(operationId = "deleteFile", summary = "Delete a File")
-    @DeleteMapping(path = "/csv/{id}")
+    @DeleteMapping(path = "/files/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Void> deleteFile(@PathVariable UUID id) {
         fileRepository.delete(fileRepository.findById(id).orElseThrow(() -> new FileNotFoundError(id.toString())));
