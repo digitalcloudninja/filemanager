@@ -15,15 +15,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.PagedModel;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ProblemDetail;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -178,7 +176,11 @@ public class FileController {
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> getFile(@PathVariable UUID id) {
         File file = fileRepository.findById(id).orElseThrow(() -> new FileNotFoundError(id.toString()));
-        return ResponseEntity.ok(file);
+        String header = "attachment; filename=\"%s\"";
+        return ResponseEntity.ok()
+                .contentType(MediaType.APPLICATION_OCTET_STREAM)
+                .header(HttpHeaders.CONTENT_DISPOSITION, String.format(header, file.getName()))
+                .body(new ByteArrayResource(file.getData()));
     }
 
     @ApiResponses(value = {
