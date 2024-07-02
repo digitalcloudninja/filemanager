@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "d27ddc87-7f5d-4d04-bbf6-99cda4de8fc5",
+		"_postman_id": "9367a616-e800-4198-ac6f-6bcbefb258ab",
 		"name": "FileManager API Documentation",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_uid": "30874099-d27ddc87-7f5d-4d04-bbf6-99cda4de8fc5"
+		"_uid": "30874099-9367a616-e800-4198-ac6f-6bcbefb258ab"
 	},
 	"item": [
 		{
@@ -11,7 +11,7 @@
 			"item": [
 				{
 					"name": "Upload a File",
-					"id": "27c71eef-241c-4e20-9976-ad0f010c9c47",
+					"id": "8c91598f-f560-4371-8b1b-cf1e42577b6b",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -34,24 +34,24 @@
 									"key": "File",
 									"type": "file",
 									"description": "(Required) ",
-									"src": "/Users/magnuson/Documents/digitalcloud.ninja-site/compose.yaml"
+									"src": "/Users/magnuson/Documents/digitalcloud.ninja-site/Dockerfile"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{baseUrl}}/files/csv",
+							"raw": "{{baseUrl}}/filemanager/files",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
-								"files",
-								"csv"
+								"filemanager",
+								"files"
 							]
 						}
 					},
 					"response": [
 						{
-							"id": "0850adf6-c389-44c0-9b6d-161edfe76914",
+							"id": "4e1ae949-d6a2-49f6-8210-81298d6c79e1",
 							"name": "Returns the newly created file resource",
 							"originalRequest": {
 								"method": "PUT",
@@ -73,17 +73,13 @@
 									]
 								},
 								"url": {
-									"raw": "http://localhost:8080/v1/api/files/csv",
-									"protocol": "http",
+									"raw": "{{baseUrl}}/filemanager/files",
 									"host": [
-										"localhost"
+										"{{baseUrl}}"
 									],
-									"port": "8080",
 									"path": [
-										"v1",
-										"api",
-										"files",
-										"csv"
+										"filemanager",
+										"files"
 									]
 								}
 							},
@@ -100,7 +96,7 @@
 							"body": "{\n  \"name\": \"example.csv\",\n  \"type\": \"text/csv\",\n  \"size\": 1024,\n  \"_links\": {\n    \"self\": \"https://api.example.com/v1/api/files/csv/a9effbb3-4178-f6e9-08a7-e9520c4620d7\"\n  }\n}"
 						},
 						{
-							"id": "50efb413-4f1b-4bb9-b74a-c4a871a2a209",
+							"id": "f518c46e-a5ce-4c62-8d70-bed9fa4759e0",
 							"name": "Returned when your request is not valid",
 							"originalRequest": {
 								"method": "PUT",
@@ -122,13 +118,13 @@
 									]
 								},
 								"url": {
-									"raw": "{{baseUrl}}/files/csv",
+									"raw": "{{baseUrl}}/filemanager/files",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
-										"files",
-										"csv"
+										"filemanager",
+										"files"
 									]
 								}
 							},
@@ -142,13 +138,13 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n  \"type\": \"https://knIueRloOSASZE.gxrPn.ebO3F450E,wmf1rIipXtUrJITDRoBkcPSfGn9ERtuBs1.0z\",\n  \"title\": \"incididunt dolore anim\",\n  \"status\": -21238021,\n  \"detail\": \"Ut dolore Duis quis amet\",\n  \"instance\": \"http://zljJ.nnZWJCRP8kz,5u0Q.sHxsj4SP.E1\",\n  \"properties\": {\n    \"consequat_4\": {},\n    \"pariatur_7ad\": {},\n    \"Excepteur_028\": {}\n  }\n}"
+							"body": "{\n  \"type\": \"http://HJKtLSyZZuITf.mdelb98ahO0hmz+ngfMaPmu7SEmR3pA1SBaUMBZ8SdxMCqKOAKHQgrMlmRfO\",\n  \"title\": \"in minim ipsum\",\n  \"status\": 85265877,\n  \"detail\": \"tempor\",\n  \"instance\": \"https://VPnmndQWoYSBcrYtgsLIWXzaUr.rrwjMEBg-ubxoqtWNqTN.zHFxqDss7vh7q11c7h6vBp9rXMrOOA\",\n  \"properties\": {\n    \"proident_0\": {},\n    \"magna_9f\": {},\n    \"deserunt_218\": {}\n  }\n}"
 						}
 					]
 				},
 				{
 					"name": "Read a File",
-					"id": "b81c322b-bbfc-4854-8027-e7aedf72d64a",
+					"id": "71664b94-6991-4116-8dcd-30ea48cd4bf6",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -161,13 +157,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/files/csv/:id",
+							"raw": "{{baseUrl}}/filemanager/files/:id",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
+								"filemanager",
 								"files",
-								"csv",
 								":id"
 							],
 							"variable": [
@@ -181,7 +177,7 @@
 					},
 					"response": [
 						{
-							"id": "f2b5b310-c323-4f66-b526-ec88e7be867d",
+							"id": "29e1f599-0754-410a-aa25-9acba5bbe696",
 							"name": "Returns the file.",
 							"originalRequest": {
 								"method": "GET",
@@ -192,23 +188,19 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:8080/v1/api/files/csv/:id",
-									"protocol": "http",
+									"raw": "{{baseUrl}}/filemanager/files/:id",
 									"host": [
-										"localhost"
+										"{{baseUrl}}"
 									],
-									"port": "8080",
 									"path": [
-										"v1",
-										"api",
+										"filemanager",
 										"files",
-										"csv",
 										":id"
 									],
 									"variable": [
 										{
 											"key": "id",
-											"value": "urn:uuid:d14a5e18-cc65-bf63-e057-669445d6b438",
+											"value": "urn:uuid:ea832e1d-4ca0-b17b-958c-fa9497d9c9f0",
 											"description": "(Required) "
 										}
 									]
@@ -227,7 +219,7 @@
 							"body": ""
 						},
 						{
-							"id": "a3564e10-f549-4ebe-aa01-5bf7e97ca28a",
+							"id": "aefcaa6f-e9a1-423c-a3d1-3f04e47a45c5",
 							"name": "Returned when the id is invalid",
 							"originalRequest": {
 								"method": "GET",
@@ -238,19 +230,19 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/files/csv/:id",
+									"raw": "{{baseUrl}}/filemanager/files/:id",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
+										"filemanager",
 										"files",
-										"csv",
 										":id"
 									],
 									"variable": [
 										{
 											"key": "id",
-											"value": "urn:uuid:d14a5e18-cc65-bf63-e057-669445d6b438",
+											"value": "urn:uuid:ea832e1d-4ca0-b17b-958c-fa9497d9c9f0",
 											"description": "(Required) "
 										}
 									]
@@ -269,7 +261,7 @@
 							"body": ""
 						},
 						{
-							"id": "2af5460c-e0c0-45a0-ae86-f1bf7e64564a",
+							"id": "b6dd478e-55eb-4a23-b24b-2204afb2bf12",
 							"name": "Returned when the file is not found",
 							"originalRequest": {
 								"method": "GET",
@@ -280,19 +272,19 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/files/csv/:id",
+									"raw": "{{baseUrl}}/filemanager/files/:id",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
+										"filemanager",
 										"files",
-										"csv",
 										":id"
 									],
 									"variable": [
 										{
 											"key": "id",
-											"value": "urn:uuid:d14a5e18-cc65-bf63-e057-669445d6b438",
+											"value": "urn:uuid:ea832e1d-4ca0-b17b-958c-fa9497d9c9f0",
 											"description": "(Required) "
 										}
 									]
@@ -314,7 +306,7 @@
 				},
 				{
 					"name": "Delete a File",
-					"id": "1c1c041f-8255-4031-bbac-29e611ef004c",
+					"id": "471dab2f-7df9-4bb8-acac-e82733b9decd",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -327,19 +319,19 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/files/csv/:id",
+							"raw": "{{baseUrl}}/filemanager/files/:id",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
+								"filemanager",
 								"files",
-								"csv",
 								":id"
 							],
 							"variable": [
 								{
 									"key": "id",
-									"value": "3a9d75d9-3966-40f0-877b-bca52e84c4b5",
+									"value": "b825af67-8f88-49ed-aa92-89c05ef63f2a",
 									"description": "(Required) "
 								}
 							]
@@ -347,7 +339,7 @@
 					},
 					"response": [
 						{
-							"id": "2faaae78-6b0c-47fa-8c25-07c51597f9cc",
+							"id": "94b7d0af-b4ef-4465-96c4-8c237287a835",
 							"name": "Successfully deleted.",
 							"originalRequest": {
 								"method": "DELETE",
@@ -358,23 +350,19 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:8080/v1/api/files/csv/:id",
-									"protocol": "http",
+									"raw": "{{baseUrl}}/filemanager/files/:id",
 									"host": [
-										"localhost"
+										"{{baseUrl}}"
 									],
-									"port": "8080",
 									"path": [
-										"v1",
-										"api",
+										"filemanager",
 										"files",
-										"csv",
 										":id"
 									],
 									"variable": [
 										{
 											"key": "id",
-											"value": "urn:uuid:d14a5e18-cc65-bf63-e057-669445d6b438",
+											"value": "urn:uuid:ea832e1d-4ca0-b17b-958c-fa9497d9c9f0",
 											"description": "(Required) "
 										}
 									]
@@ -393,7 +381,7 @@
 							"body": "{}"
 						},
 						{
-							"id": "b617031c-c5ae-4825-b124-e0ec43e43347",
+							"id": "2fe6dddc-5ca9-4996-8443-d7d717375aba",
 							"name": "Returned when the id is invalid",
 							"originalRequest": {
 								"method": "DELETE",
@@ -404,19 +392,19 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/files/csv/:id",
+									"raw": "{{baseUrl}}/filemanager/files/:id",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
+										"filemanager",
 										"files",
-										"csv",
 										":id"
 									],
 									"variable": [
 										{
 											"key": "id",
-											"value": "urn:uuid:d14a5e18-cc65-bf63-e057-669445d6b438",
+											"value": "urn:uuid:ea832e1d-4ca0-b17b-958c-fa9497d9c9f0",
 											"description": "(Required) "
 										}
 									]
@@ -432,10 +420,10 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n  \"type\": \"http://WTJBCTeF.loamp,Xz-LwgujuzGNwcQMe1zby3eHcC-F23mD\",\n  \"title\": \"fugiat tempor aute in\",\n  \"status\": 72069868,\n  \"detail\": \"reprehenderit enim dolore ullamco mollit\",\n  \"instance\": \"http://YsXmZKpyiaoc.izeqGKShCK54Mp\",\n  \"properties\": {\n    \"incididunt__2\": {},\n    \"inf9\": {}\n  }\n}"
+							"body": "{\n  \"type\": \"https://CdkDSVDsrLQlFvH.cuboy8iJ8iX8YNQM.yYvk3QJyhWoh+ur8GbO6i3v0m5Duk4zGxKcPshyraEoXTg87L2S9wlTPEHfQ5dh.b4+G\",\n  \"title\": \"eu ut dolore fugiat aute\",\n  \"status\": -6631790,\n  \"detail\": \"aliqua Lorem ullamco mollit\",\n  \"instance\": \"http://SOQurAgZdGD.lwyVi2B4awRVI88yhQ.6ZFAzBMWpRw\",\n  \"properties\": {\n    \"in3c\": {}\n  }\n}"
 						},
 						{
-							"id": "dce7c3ec-0db3-4652-8b61-d5aaf39281f3",
+							"id": "ae718592-7e61-4d45-bcc6-5fb83fedd518",
 							"name": "Returned when the file is not found",
 							"originalRequest": {
 								"method": "DELETE",
@@ -446,19 +434,19 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/files/csv/:id",
+									"raw": "{{baseUrl}}/filemanager/files/:id",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
+										"filemanager",
 										"files",
-										"csv",
 										":id"
 									],
 									"variable": [
 										{
 											"key": "id",
-											"value": "urn:uuid:d14a5e18-cc65-bf63-e057-669445d6b438",
+											"value": "urn:uuid:ea832e1d-4ca0-b17b-958c-fa9497d9c9f0",
 											"description": "(Required) "
 										}
 									]
@@ -474,13 +462,13 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n  \"type\": \"https://yVjAyaHUmzSuyIyag.edHBtv.Nds1lO0eC.oTfmjCwWClfXdwXKqqSiJM82GpzF\",\n  \"title\": \"magna laboris\",\n  \"status\": 3346466,\n  \"detail\": \"ea in Lorem aliquip\",\n  \"instance\": \"http://hoTzhiNpayIHiH.jrxgy1Ab\",\n  \"properties\": {\n    \"eiusmod63\": {},\n    \"quis_f\": {},\n    \"dolor85e\": {}\n  }\n}"
+							"body": "{\n  \"type\": \"https://Ajdnjip.rlhmXWMIovoi46prSqNw0oBvIXwx\",\n  \"title\": \"id proident\",\n  \"status\": 89140719,\n  \"detail\": \"lab\",\n  \"instance\": \"https://jCSqMQNmSutPgaGUdLSjcBOJw.whwMRz2VU38M7z.Z8HG7YBgCVI8e-hevJyzBhd2SKK\",\n  \"properties\": {\n    \"eiusmod_7\": {}\n  }\n}"
 						}
 					]
 				},
 				{
 					"name": "List All Files",
-					"id": "fac50181-4f81-4c54-8042-22b1a612314c",
+					"id": "86b5bc9d-79ef-408d-9bfd-a0dc2fe3c14f",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -493,13 +481,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/files/csv/list?page=0&size=20&sort=",
+							"raw": "{{baseUrl}}/filemanager/files/list?page=0&size=20&sort=",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
+								"filemanager",
 								"files",
-								"csv",
 								"list"
 							],
 							"query": [
@@ -523,7 +511,7 @@
 					},
 					"response": [
 						{
-							"id": "cc59c444-85b2-481a-b1f4-aeac31f0f298",
+							"id": "55a02f75-9f3c-487e-a7c2-9b4cabdd3e4a",
 							"name": "Success: Returns a list of files",
 							"originalRequest": {
 								"method": "GET",
@@ -534,17 +522,13 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:8080/v1/api/files/csv/list?page=0&size=20",
-									"protocol": "http",
+									"raw": "{{baseUrl}}/filemanager/files/list?page=0&size=20",
 									"host": [
-										"localhost"
+										"{{baseUrl}}"
 									],
-									"port": "8080",
 									"path": [
-										"v1",
-										"api",
+										"filemanager",
 										"files",
-										"csv",
 										"list"
 									],
 									"query": [
@@ -574,14 +558,14 @@
 					]
 				}
 			],
-			"id": "df93ce78-fb2a-41d3-93ca-c352e7977d50"
+			"id": "313897b1-0f4d-4727-a56a-5ab32005ddba"
 		}
 	],
 	"variable": [
 		{
-			"id": "41bdce35-b7a3-48e6-b2ff-c6d57312e37c",
+			"id": "15d28834-7d25-46ed-9ee5-075018694a82",
 			"key": "baseUrl",
-			"value": "http://localhost:8080/v1/api",
+			"value": "http://localhost/v1/api",
 			"type": "string"
 		}
 	]

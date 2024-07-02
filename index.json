@@ -6,12 +6,12 @@
     },
     "servers": [
         {
-            "url": "http://localhost:8080/v1/api",
+            "url": "http://localhost/v1/api",
             "description": "Generated server url"
         }
     ],
     "paths": {
-        "/files/csv": {
+        "/filemanager/files": {
             "put": {
                 "tags": [
                     "Files"
@@ -100,7 +100,7 @@
                 }
             }
         },
-        "/files/csv/{id}": {
+        "/filemanager/files/{id}": {
             "get": {
                 "tags": [
                     "Files"
@@ -119,14 +119,6 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "Returns the file.",
-                        "content": {
-                            "application/octet-stream": {
-                                "schema": {}
-                            }
-                        }
-                    },
                     "400": {
                         "description": "Returned when the id is invalid",
                         "content": {
@@ -141,6 +133,14 @@
                                         "instance": "/v1/api/files/csv/u8c6bd418-a548-3b09-1caf-60ee96b5b533"
                                     }
                                 }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Returns the file.",
+                        "content": {
+                            "application/octet-stream": {
+                                "schema": {}
                             }
                         }
                     },
@@ -181,17 +181,31 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "Successfully deleted.",
+                    "404": {
+                        "description": "Returned when the file is not found",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "example": {}
+                                    "$ref": "#/components/schemas/ProblemDetail",
+                                    "example": {
+                                        "type": "about:blank",
+                                        "title": "Not Found",
+                                        "status": 404,
+                                        "detail": "File ID: '0b4b873e-424d-cba3-8165-903f47f23183' was not found.",
+                                        "instance": "/v1/api/files/csv/0b4b873e-424d-cba3-8165-903f47f23183"
+                                    }
                                 }
                             },
                             "application/hal+json": {
                                 "schema": {
-                                    "example": {}
+                                    "$ref": "#/components/schemas/ProblemDetail",
+                                    "example": {
+                                        "type": "about:blank",
+                                        "title": "Not Found",
+                                        "status": 404,
+                                        "detail": "File ID: '0b4b873e-424d-cba3-8165-903f47f23183' was not found.",
+                                        "instance": "/v1/api/files/csv/0b4b873e-424d-cba3-8165-903f47f23183"
+                                    }
                                 }
                             }
                         }
@@ -225,31 +239,17 @@
                             }
                         }
                     },
-                    "404": {
-                        "description": "Returned when the file is not found",
+                    "200": {
+                        "description": "Successfully deleted.",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetail",
-                                    "example": {
-                                        "type": "about:blank",
-                                        "title": "Not Found",
-                                        "status": 404,
-                                        "detail": "File ID: '0b4b873e-424d-cba3-8165-903f47f23183' was not found.",
-                                        "instance": "/v1/api/files/csv/0b4b873e-424d-cba3-8165-903f47f23183"
-                                    }
+                                    "example": {}
                                 }
                             },
                             "application/hal+json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetail",
-                                    "example": {
-                                        "type": "about:blank",
-                                        "title": "Not Found",
-                                        "status": 404,
-                                        "detail": "File ID: '0b4b873e-424d-cba3-8165-903f47f23183' was not found.",
-                                        "instance": "/v1/api/files/csv/0b4b873e-424d-cba3-8165-903f47f23183"
-                                    }
+                                    "example": {}
                                 }
                             }
                         }
@@ -257,7 +257,7 @@
                 }
             }
         },
-        "/files/csv/list": {
+        "/filemanager/files/list": {
             "get": {
                 "tags": [
                     "Files"

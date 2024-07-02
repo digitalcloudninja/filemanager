@@ -64,6 +64,9 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -127,26 +130,11 @@
 			"id": "ba0724cd-fcd5-4f34-b49e-f9d336f118e1"
 		}
 	],
-	"auth": {
-		"type": "basic",
-		"basic": [
-			{
-				"key": "username",
-				"value": "{{basicAuthUsername}}",
-				"type": "string"
-			},
-			{
-				"key": "password",
-				"value": "{{basicAuthPassword}}",
-				"type": "string"
-			}
-		]
-	},
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "685b5de9-8a35-4b97-ab02-ef742d1dbbb6",
+				"id": "ae63030b-78e1-4ca4-8b92-676cc1970198",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -157,7 +145,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "52c0ba92-5bcc-4903-9876-a35dfbeba010",
+				"id": "ad48d2fb-bb5e-4fc4-b8fd-b47dd26d1458",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -168,12 +156,12 @@
 	],
 	"variable": [
 		{
-			"id": "cff3d349-fdfc-4ca1-9274-072ba39d9dd1",
+			"id": "c4c714cc-55c7-4d05-b6bf-8c04252ae1e4",
 			"key": "port",
 			"value": "8082"
 		},
 		{
-			"id": "cd341bc7-fe31-4638-a427-b35402ee655a",
+			"id": "351cefbd-2bc2-4948-9b5a-49d9c0a86ca2",
 			"key": "file",
 			"value": ""
 		}
