@@ -58,7 +58,7 @@
 			"name": "Health",
 			"item": [
 				{
-					"name": "Ping",
+					"name": "Health",
 					"id": "cbc3c126-d81d-472f-80b9-b6894863ff7b",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -67,12 +67,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/actuator/health",
+							"raw": "{{baseUrl}}/filemanager/health",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
-								"actuator",
+								"filemanager",
 								"health"
 							]
 						}
@@ -89,13 +89,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/files/actuator/info",
+							"raw": "{{baseUrl}}/filemanager/info",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
-								"files",
-								"actuator",
+								"filemanager",
 								"info"
 							]
 						}
@@ -112,12 +111,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/files/api-docs",
+							"raw": "{{baseUrl}}/filemanager/api-docs",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
-								"files",
+								"filemanager",
 								"api-docs"
 							]
 						}
