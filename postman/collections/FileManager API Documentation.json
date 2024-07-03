@@ -34,7 +34,7 @@
 									"key": "File",
 									"type": "file",
 									"description": "(Required) ",
-									"src": "/Users/magnuson/Documents/digitalcloud.ninja-site/Dockerfile"
+									"src": "/Users/magnuson/Documents/digitalcloud.ninja-site/package-lock.json"
 								}
 							]
 						},
@@ -169,7 +169,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "db01b889-a4e2-43bd-8c47-8a04c11e23c6",
+									"value": "a78fccce-8d19-4e17-817d-75b0cdd53a78",
 									"description": "(Required) "
 								}
 							]
@@ -331,7 +331,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "b825af67-8f88-49ed-aa92-89c05ef63f2a",
+									"value": "db01b889-a4e2-43bd-8c47-8a04c11e23c6",
 									"description": "(Required) "
 								}
 							]
@@ -587,7 +587,7 @@
 	],
 	"variable": [
 		{
-			"id": "45c29ab5-f8e6-4d7c-b611-8932f4e1ec0a",
+			"id": "e644dc3f-4a5e-4c25-97e0-373c939b50a4",
 			"key": "port",
 			"value": "8082",
 			"type": "string"
