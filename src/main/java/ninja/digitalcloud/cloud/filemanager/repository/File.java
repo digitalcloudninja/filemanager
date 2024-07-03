@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -16,6 +17,7 @@ import java.util.UUID;
 @Entity
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@Schema(name = "File", description = "A file descriptor.", requiredProperties = {"name", "content-type"})
 @Table(schema = "FILEMANAGER", name = "FILES")
 public class File extends RepresentationModel<File> {
 
@@ -29,11 +31,13 @@ public class File extends RepresentationModel<File> {
     @Column(name = "NAME")
     @JsonProperty(value = "name", index = 2)
     @Schema(description = "The file's original name", example = "example.csv")
+    @Size(max = 50, message = "Invalid file name.")
     private String name;
 
     @Column(name = "CONTENT_TYPE")
     @JsonProperty(value = "content-type", index = 3)
     @Schema(description = "The file's content-type.", example = "text/csv")
+    @Size(max = 50, message = "Invalid content-type.")
     private String contentType;
 
     @Column(name = "SIZE")
