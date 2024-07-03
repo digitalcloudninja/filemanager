@@ -1,6 +1,7 @@
 services:
   postgres:
-    image: postgres:alpine
+    image: digitalcloudninja/postgresql
+    platform: linux/arm64
     environment:
       - "POSTGRES_DB=postgres"
       - "POSTGRES_USER=postgres"

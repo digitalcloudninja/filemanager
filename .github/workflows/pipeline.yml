@@ -48,8 +48,14 @@ jobs:
           username: ${{ env.USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build Container
-        run: docker build . --file Dockerfile --tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+      - name: Build ARM64 Container
+        run: docker build --platform=linux/arm64 . --file Dockerfile --tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:mac
 
-      - name: Publish Container
-        run: docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+      - name: Publish ARM64 Container
+        run: docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
+      - name: Build AMD64 Container
+        run: docker build --platform=linux/amd64 . --file Dockerfile --tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:windows
+
+      - name: Publish AMD64 Container
+        run: docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
