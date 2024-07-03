@@ -55,6 +55,37 @@
 			"id": "84719786-98f4-404b-acd1-2e32e98d29f6"
 		},
 		{
+			"name": "Configuration",
+			"item": [
+				{
+					"name": "Default Profile",
+					"id": "a4a9fb0a-3cdb-4192-b32d-43169a3c9b23",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8888/filemanager/default/master",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"filemanager",
+								"default",
+								"master"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "31d47df2-747f-48bc-8687-21150ab1e2fd"
+		},
+		{
 			"name": "Health",
 			"item": [
 				{
@@ -103,9 +134,15 @@
 						}
 					},
 					"response": []
-				},
+				}
+			],
+			"id": "ba0724cd-fcd5-4f34-b49e-f9d336f118e1"
+		},
+		{
+			"name": "OpenAPI",
+			"item": [
 				{
-					"name": "OpenAPI Specification",
+					"name": "Sechema",
 					"id": "5d2e9c8d-c78e-4b44-8a62-aaddabd083d1",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -127,7 +164,7 @@
 					"response": []
 				}
 			],
-			"id": "ba0724cd-fcd5-4f34-b49e-f9d336f118e1"
+			"id": "4dfb40ca-a1b6-4b04-8054-f3515cdc8139"
 		}
 	],
 	"event": [
