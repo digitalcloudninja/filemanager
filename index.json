@@ -1,17 +1,48 @@
 {
     "openapi": "3.1.0",
     "info": {
-        "title": "OpenAPI definition",
-        "version": "v0"
+        "title": "File Management API",
+        "description": "A file management API for container applications",
+        "contact": {
+            "email": "developer@example.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0"
+        },
+        "version": "v1"
     },
     "servers": [
         {
+            "url": "http://localhost:{port}/v1/api",
+            "description": "Beta",
+            "variables": {
+                "port": {
+                    "default": "8082"
+                }
+            }
+        },
+        {
             "url": "http://localhost/v1/api",
-            "description": "Generated server url"
+            "description": "Production"
+        }
+    ],
+    "security": [
+        {
+            "basicAuth": []
+        },
+        {
+            "APIKey": []
+        }
+    ],
+    "tags": [
+        {
+            "name": "Files",
+            "description": "Operations for working with stored files."
         }
     ],
     "paths": {
-        "/filemanager/files": {
+        "/filemanager/upload": {
             "put": {
                 "tags": [
                     "Files"
@@ -48,7 +79,7 @@
                                         "type": "text/csv",
                                         "size": 1024,
                                         "_links": {
-                                            "self": "https://api.example.com/v1/api/files/csv/a9effbb3-4178-f6e9-08a7-e9520c4620d7"
+                                            "self": "https://api.example.com/v1/api/filemanager/a9effbb3-4178-f6e9-08a7-e9520c4620d7"
                                         }
                                     }
                                 }
@@ -61,7 +92,7 @@
                                         "type": "text/csv",
                                         "size": 1024,
                                         "_links": {
-                                            "self": "https://api.example.com/v1/api/files/csv/a9effbb3-4178-f6e9-08a7-e9520c4620d7"
+                                            "self": "https://api.example.com/v1/api/filemanager/a9effbb3-4178-f6e9-08a7-e9520c4620d7"
                                         }
                                     }
                                 }
@@ -73,26 +104,12 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetail",
-                                    "example": {
-                                        "type": "about:blank",
-                                        "title": "Bad Request",
-                                        "status": 400,
-                                        "detail": "Required part 'File' is not present.",
-                                        "instance": "/v1/api/files/csv"
-                                    }
+                                    "$ref": "#/components/schemas/ProblemDetail"
                                 }
                             },
                             "application/hal+json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetail",
-                                    "example": {
-                                        "type": "about:blank",
-                                        "title": "Bad Request",
-                                        "status": 400,
-                                        "detail": "Required part 'File' is not present.",
-                                        "instance": "/v1/api/files/csv"
-                                    }
+                                    "$ref": "#/components/schemas/ProblemDetail"
                                 }
                             }
                         }
@@ -100,12 +117,12 @@
                 }
             }
         },
-        "/filemanager/files/{id}": {
+        "/filemanager/{id}": {
             "get": {
                 "tags": [
                     "Files"
                 ],
-                "summary": "Read a File",
+                "summary": "View a File",
                 "operationId": "getFile",
                 "parameters": [
                     {
@@ -119,44 +136,43 @@
                     }
                 ],
                 "responses": {
-                    "400": {
-                        "description": "Returned when the id is invalid",
+                    "404": {
+                        "description": "Returned when the file is not found",
                         "content": {
-                            "application/octet-stream": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetail",
-                                    "example": {
-                                        "type": "about:blank",
-                                        "title": "Bad Request",
-                                        "status": 400,
-                                        "detail": "Failed to convert 'id' with value: 'u8c6bd418-a548-3b09-1caf-60ee96b5b533'",
-                                        "instance": "/v1/api/files/csv/u8c6bd418-a548-3b09-1caf-60ee96b5b533"
-                                    }
+                                    "$ref": "#/components/schemas/ProblemDetail"
+                                }
+                            },
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetail"
                                 }
                             }
                         }
                     },
                     "200": {
-                        "description": "Returns the file.",
+                        "description": "Returns the file, with the Content-Type set to the content of the file.",
                         "content": {
-                            "application/octet-stream": {
+                            "application/json": {
+                                "schema": {}
+                            },
+                            "application/hal+json": {
                                 "schema": {}
                             }
                         }
                     },
-                    "404": {
-                        "description": "Returned when the file is not found",
+                    "400": {
+                        "description": "Returned when the id is invalid",
                         "content": {
-                            "application/octet-stream": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetail",
-                                    "example": {
-                                        "type": "about:blank",
-                                        "title": "Not Found",
-                                        "status": 404,
-                                        "detail": "File ID: '2f5797df-3c7c-9a28-5ebf-3ef70da7bed4' was not found.",
-                                        "instance": "/v1/api/files/csv/2f5797df-3c7c-9a28-5ebf-3ef70da7bed4"
-                                    }
+                                    "$ref": "#/components/schemas/ProblemDetail"
+                                }
+                            },
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetail"
                                 }
                             }
                         }
@@ -186,70 +202,30 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetail",
-                                    "example": {
-                                        "type": "about:blank",
-                                        "title": "Not Found",
-                                        "status": 404,
-                                        "detail": "File ID: '0b4b873e-424d-cba3-8165-903f47f23183' was not found.",
-                                        "instance": "/v1/api/files/csv/0b4b873e-424d-cba3-8165-903f47f23183"
-                                    }
+                                    "$ref": "#/components/schemas/ProblemDetail"
                                 }
                             },
                             "application/hal+json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetail",
-                                    "example": {
-                                        "type": "about:blank",
-                                        "title": "Not Found",
-                                        "status": 404,
-                                        "detail": "File ID: '0b4b873e-424d-cba3-8165-903f47f23183' was not found.",
-                                        "instance": "/v1/api/files/csv/0b4b873e-424d-cba3-8165-903f47f23183"
-                                    }
+                                    "$ref": "#/components/schemas/ProblemDetail"
                                 }
                             }
                         }
+                    },
+                    "200": {
+                        "description": "Successfully deleted."
                     },
                     "400": {
                         "description": "Returned when the id is invalid",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetail",
-                                    "example": {
-                                        "type": "about:blank",
-                                        "title": "Bad Request",
-                                        "status": 400,
-                                        "detail": "Failed to convert 'id' with value: 'u8c6bd418-a548-3b09-1caf-60ee96b5b533'",
-                                        "instance": "/v1/api/files/csv/u8c6bd418-a548-3b09-1caf-60ee96b5b533"
-                                    }
+                                    "$ref": "#/components/schemas/ProblemDetail"
                                 }
                             },
                             "application/hal+json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetail",
-                                    "example": {
-                                        "type": "about:blank",
-                                        "title": "Bad Request",
-                                        "status": 400,
-                                        "detail": "Failed to convert 'id' with value: 'u8c6bd418-a548-3b09-1caf-60ee96b5b533'",
-                                        "instance": "/v1/api/files/csv/u8c6bd418-a548-3b09-1caf-60ee96b5b533"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "200": {
-                        "description": "Successfully deleted.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "example": {}
-                                }
-                            },
-                            "application/hal+json": {
-                                "schema": {
-                                    "example": {}
+                                    "$ref": "#/components/schemas/ProblemDetail"
                                 }
                             }
                         }
@@ -257,7 +233,7 @@
                 }
             }
         },
-        "/filemanager/files/list": {
+        "/filemanager/list": {
             "get": {
                 "tags": [
                     "Files"
@@ -311,7 +287,7 @@
                                                     "size": 315,
                                                     "_links": {
                                                         "self": {
-                                                            "href": "http://api.example.com/v1/api/files/csv/6f30d7a5-2f2f-444b-965b-9dd5798e2f8c"
+                                                            "href": "http://api.example.com/v1/api/filemanager/6f30d7a5-2f2f-444b-965b-9dd5798e2f8c"
                                                         }
                                                     }
                                                 }
@@ -319,7 +295,7 @@
                                         },
                                         "_links": {
                                             "self": {
-                                                "href": "http://api.example.com/v1/api/files/csv/list?page=0&size=20"
+                                                "href": "http://api.example.com/v1/api/filemanager/list?page=0&size=20"
                                             }
                                         },
                                         "page": {
@@ -343,7 +319,7 @@
                                                     "size": 315,
                                                     "_links": {
                                                         "self": {
-                                                            "href": "http://api.example.com/v1/api/files/csv/6f30d7a5-2f2f-444b-965b-9dd5798e2f8c"
+                                                            "href": "http://api.example.com/v1/api/filemanager/6f30d7a5-2f2f-444b-965b-9dd5798e2f8c"
                                                         }
                                                     }
                                                 }
@@ -351,7 +327,7 @@
                                         },
                                         "_links": {
                                             "self": {
-                                                "href": "http://api.example.com/v1/api/files/csv/list?page=0&size=20"
+                                                "href": "http://api.example.com/v1/api/filemanager/list?page=0&size=20"
                                             }
                                         },
                                         "page": {
@@ -367,11 +343,62 @@
                     }
                 }
             }
+        },
+        "/filemanager/download/{id}": {
+            "get": {
+                "tags": [
+                    "Files"
+                ],
+                "summary": "Download a File",
+                "operationId": "downloadFile",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "404": {
+                        "description": "Returned when the file is not found",
+                        "content": {
+                            "application/octet-stream": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetail"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Returns the file.",
+                        "content": {
+                            "application/octet-stream": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Returned when the id is invalid",
+                        "content": {
+                            "application/octet-stream": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetail"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
         "schemas": {
             "File": {
+                "description": "A file descriptor.",
                 "properties": {
                     "id": {
                         "type": "string",
@@ -382,12 +409,16 @@
                     "name": {
                         "type": "string",
                         "description": "The file's original name",
-                        "example": "example.csv"
+                        "example": "example.csv",
+                        "maxLength": 50,
+                        "minLength": 0
                     },
                     "content-type": {
                         "type": "string",
                         "description": "The file's content-type.",
-                        "example": "text/csv"
+                        "example": "text/csv",
+                        "maxLength": 50,
+                        "minLength": 0
                     },
                     "size": {
                         "type": "integer",
@@ -401,7 +432,11 @@
                             "$ref": "#/components/schemas/Link"
                         }
                     }
-                }
+                },
+                "required": [
+                    "content-type",
+                    "name"
+                ]
             },
             "Link": {
                 "properties": {
@@ -496,6 +531,17 @@
                         "$ref": "#/components/schemas/PageMetadata"
                     }
                 }
+            }
+        },
+        "securitySchemes": {
+            "APIKey": {
+                "type": "apiKey",
+                "name": "APIKey",
+                "in": "header"
+            },
+            "basicAuth": {
+                "type": "http",
+                "scheme": "basic"
             }
         }
     }

@@ -1,0 +1,885 @@
+{
+	"info": {
+		"_postman_id": "e2c0db0c-2b3d-4416-9b88-6e5eecf7f154",
+		"name": "File Management API Documentation",
+		"description": "A file management API for container applications\n\nContact Support:\n Email: developer@example.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "30874099-e2c0db0c-2b3d-4416-9b88-6e5eecf7f154"
+	},
+	"item": [
+		{
+			"name": "Files",
+			"item": [
+				{
+					"name": "Upload a File",
+					"id": "066c90be-3efe-49b6-b868-1df84fcd636f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "File",
+									"type": "file",
+									"description": "(Required) ",
+									"value": null
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/filemanager/upload",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"filemanager",
+								"upload"
+							],
+							"variable": [
+								{
+									"key": "port",
+									"value": "{{port}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "f3d8c152-44fc-4caa-9488-eb2c5761130a",
+							"name": "Returns the newly created file resource",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"description": "(Required) ",
+											"key": "File",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/filemanager/upload",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"filemanager",
+										"upload"
+									],
+									"variable": [
+										{
+											"key": "port",
+											"value": "{{port}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"content-type\": \"text/csv\",\n  \"name\": \"example.csv\",\n  \"id\": \"a9effbb3-4178-f6e9-08a7-e9520c4620d7\",\n  \"size\": 0,\n  \"links\": [\n    {\n      \"rel\": \"venia\",\n      \"href\": \"sit\",\n      \"hreflang\": \"quis culpa\",\n      \"media\": \"ex adipisicing sint laborum\",\n      \"title\": \"do in consequat commodo\",\n      \"type\": \"do id labore\",\n      \"deprecation\": \"Excepteur cillum eiusmod\",\n      \"profile\": \"anim aliqua culpa fugiat velit\",\n      \"name\": \"ex in veniam\"\n    },\n    {\n      \"rel\": \"occaecat\",\n      \"href\": \"amet dolor adipisicing cupidatat incididunt\",\n      \"hreflang\": \"ea sint elit \",\n      \"media\": \"sit dolore labore\",\n      \"title\": \"adipisicing reprehenderit officia magn\",\n      \"type\": \"ex id adipisi\",\n      \"deprecation\": \"aliquip sed Duis in\",\n      \"profile\": \"mollit\",\n      \"name\": \"anim\"\n    }\n  ]\n}"
+						},
+						{
+							"id": "d5360a2d-f171-47db-b837-3d834be31640",
+							"name": "Returned when your request is not valid",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"description": "(Required) ",
+											"key": "File",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/filemanager/upload",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"filemanager",
+										"upload"
+									],
+									"variable": [
+										{
+											"key": "port",
+											"value": "{{port}}"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"type\": \"https://JnikeaiBtRQqblayuoYcQRUlYypuSI.yuuYnCcUD0+7wmZG-UDFJ,2DLXb48bO4UdmKWI\",\n  \"title\": \"nul\",\n  \"status\": -55514799,\n  \"detail\": \"consectetur id enim\",\n  \"instance\": \"http://nWHHddObxDomRQWyshqMZmN.wcBTZM9rD1eowN\",\n  \"properties\": {\n    \"dolore65\": {},\n    \"enim___1\": {}\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Download a File",
+					"id": "e03e651e-55ad-4bef-a7a8-2611ff97b5f7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/octet-stream"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/filemanager/download/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"filemanager",
+								"download",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "urn:uuid:1e90b6ed-701b-53f2-af2c-59d3cd76b545",
+									"description": "(Required) "
+								},
+								{
+									"key": "port",
+									"value": "{{port}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "493e2306-010c-41e0-9a07-3d038bf0185f",
+							"name": "Returns the file.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/octet-stream"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/filemanager/download/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"filemanager",
+										"download",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "urn:uuid:1e90b6ed-701b-53f2-af2c-59d3cd76b545",
+											"description": "(Required) "
+										},
+										{
+											"key": "port",
+											"value": "{{port}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/octet-stream"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"id": "b93f07dc-3f23-44b7-8ad3-f3683b58aa34",
+							"name": "Returned when the id is invalid",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/octet-stream"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/filemanager/download/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"filemanager",
+										"download",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "urn:uuid:1e90b6ed-701b-53f2-af2c-59d3cd76b545",
+											"description": "(Required) "
+										},
+										{
+											"key": "port",
+											"value": "{{port}}"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/octet-stream"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"id": "6af0d5cc-36ec-44b1-8a5f-b886400d1053",
+							"name": "Returned when the file is not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/octet-stream"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/filemanager/download/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"filemanager",
+										"download",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "urn:uuid:1e90b6ed-701b-53f2-af2c-59d3cd76b545",
+											"description": "(Required) "
+										},
+										{
+											"key": "port",
+											"value": "{{port}}"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/octet-stream"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Delete a File",
+					"id": "ab14fe1e-7c98-40ac-bb89-ff49f832d57f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/filemanager/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"filemanager",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "urn:uuid:1e90b6ed-701b-53f2-af2c-59d3cd76b545",
+									"description": "(Required) "
+								},
+								{
+									"key": "port",
+									"value": "{{port}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "72cccf37-1f06-4e64-b295-58be027d69af",
+							"name": "Successfully deleted.",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/filemanager/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"filemanager",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "urn:uuid:1e90b6ed-701b-53f2-af2c-59d3cd76b545",
+											"description": "(Required) "
+										},
+										{
+											"key": "port",
+											"value": "{{port}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"id": "fa054482-b44b-4d4e-a202-3620662492ea",
+							"name": "Returned when the id is invalid",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/filemanager/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"filemanager",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "urn:uuid:1e90b6ed-701b-53f2-af2c-59d3cd76b545",
+											"description": "(Required) "
+										},
+										{
+											"key": "port",
+											"value": "{{port}}"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"type\": \"https://JnikeaiBtRQqblayuoYcQRUlYypuSI.yuuYnCcUD0+7wmZG-UDFJ,2DLXb48bO4UdmKWI\",\n  \"title\": \"nul\",\n  \"status\": -55514799,\n  \"detail\": \"consectetur id enim\",\n  \"instance\": \"http://nWHHddObxDomRQWyshqMZmN.wcBTZM9rD1eowN\",\n  \"properties\": {\n    \"dolore65\": {},\n    \"enim___1\": {}\n  }\n}"
+						},
+						{
+							"id": "cd830cd0-299a-470d-b719-97afbbd4f6d3",
+							"name": "Returned when the file is not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/filemanager/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"filemanager",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "urn:uuid:1e90b6ed-701b-53f2-af2c-59d3cd76b545",
+											"description": "(Required) "
+										},
+										{
+											"key": "port",
+											"value": "{{port}}"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"type\": \"https://JnikeaiBtRQqblayuoYcQRUlYypuSI.yuuYnCcUD0+7wmZG-UDFJ,2DLXb48bO4UdmKWI\",\n  \"title\": \"nul\",\n  \"status\": -55514799,\n  \"detail\": \"consectetur id enim\",\n  \"instance\": \"http://nWHHddObxDomRQWyshqMZmN.wcBTZM9rD1eowN\",\n  \"properties\": {\n    \"dolore65\": {},\n    \"enim___1\": {}\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "View a File",
+					"id": "bcfc3860-7786-40fc-9fb8-bcad6df9a707",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/filemanager/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"filemanager",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "urn:uuid:1e90b6ed-701b-53f2-af2c-59d3cd76b545",
+									"description": "(Required) "
+								},
+								{
+									"key": "port",
+									"value": "{{port}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "387abfb3-d924-48d7-a590-7c085b50beed",
+							"name": "Returns the file, with the Content-Type set to the content of the file.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/filemanager/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"filemanager",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "urn:uuid:1e90b6ed-701b-53f2-af2c-59d3cd76b545",
+											"description": "(Required) "
+										},
+										{
+											"key": "port",
+											"value": "{{port}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{}"
+						},
+						{
+							"id": "865291de-89e3-4dc1-abb8-80cf041a89b5",
+							"name": "Returned when the id is invalid",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/filemanager/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"filemanager",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "urn:uuid:1e90b6ed-701b-53f2-af2c-59d3cd76b545",
+											"description": "(Required) "
+										},
+										{
+											"key": "port",
+											"value": "{{port}}"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"type\": \"https://JnikeaiBtRQqblayuoYcQRUlYypuSI.yuuYnCcUD0+7wmZG-UDFJ,2DLXb48bO4UdmKWI\",\n  \"title\": \"nul\",\n  \"status\": -55514799,\n  \"detail\": \"consectetur id enim\",\n  \"instance\": \"http://nWHHddObxDomRQWyshqMZmN.wcBTZM9rD1eowN\",\n  \"properties\": {\n    \"dolore65\": {},\n    \"enim___1\": {}\n  }\n}"
+						},
+						{
+							"id": "80ddcd03-26c4-498e-a0bd-7bc5bbb46872",
+							"name": "Returned when the file is not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/filemanager/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"filemanager",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "urn:uuid:1e90b6ed-701b-53f2-af2c-59d3cd76b545",
+											"description": "(Required) "
+										},
+										{
+											"key": "port",
+											"value": "{{port}}"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"type\": \"https://JnikeaiBtRQqblayuoYcQRUlYypuSI.yuuYnCcUD0+7wmZG-UDFJ,2DLXb48bO4UdmKWI\",\n  \"title\": \"nul\",\n  \"status\": -55514799,\n  \"detail\": \"consectetur id enim\",\n  \"instance\": \"http://nWHHddObxDomRQWyshqMZmN.wcBTZM9rD1eowN\",\n  \"properties\": {\n    \"dolore65\": {},\n    \"enim___1\": {}\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "List All Files",
+					"id": "6081532c-56cb-4ac1-a047-cbde8faf48f2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/filemanager/list?page=0&size=20&sort=",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"filemanager",
+								"list"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0",
+									"description": "Zero-based page index (0..N)"
+								},
+								{
+									"key": "size",
+									"value": "20",
+									"description": "The size of the page to be returned"
+								},
+								{
+									"key": "sort",
+									"value": "",
+									"description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+								}
+							],
+							"variable": [
+								{
+									"key": "port",
+									"value": "{{port}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "43bd7d3f-7ae7-460c-b720-d078fc51d1dd",
+							"name": "Success: Returns a list of files",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/filemanager/list?page=0&size=20",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"filemanager",
+										"list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "20"
+										}
+									],
+									"variable": [
+										{
+											"key": "port",
+											"value": "{{port}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"_embedded\": {\n    \"files\": [\n      {\n        \"name\": \"example.csv\",\n        \"content-type\": \"text/csv\",\n        \"size\": 315,\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.example.com/v1/api/filemanager/6f30d7a5-2f2f-444b-965b-9dd5798e2f8c\"\n          }\n        }\n      }\n    ]\n  },\n  \"_links\": {\n    \"self\": {\n      \"href\": \"http://api.example.com/v1/api/filemanager/list?page=0&size=20\"\n    }\n  },\n  \"page\": {\n    \"size\": 20,\n    \"totalElements\": 1,\n    \"totalPages\": 1,\n    \"number\": 0\n  }\n}"
+						}
+					]
+				}
+			],
+			"id": "bed028a8-8710-4c07-86bf-d91cf898f7f2",
+			"description": "Operations for working with stored files."
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "{{basicAuthUsername}}",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "{{basicAuthPassword}}",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"id": "3cc9a8d9-d1fa-4bb5-ba28-912bd5c0dd6e",
+			"key": "port",
+			"value": "8082",
+			"type": "any",
+			"description": {
+				"content": "",
+				"type": "text/plain"
+			}
+		},
+		{
+			"id": "b76e3fd2-6304-4761-a320-5d2285c62040",
+			"key": "baseUrl",
+			"value": "http://localhost:{{port}}/v1/api",
+			"type": "string"
+		}
+	]
+}
