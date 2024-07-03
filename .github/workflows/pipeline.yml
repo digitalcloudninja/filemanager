@@ -49,13 +49,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build ARM64 Container
-        run: docker build --platform=linux/arm64 . --file Dockerfile --tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:mac
+        run: docker build --platform=linux/arm64 . --file Dockerfile --tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
 
       - name: Publish ARM64 Container
-        run: docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:mac
-
-      - name: Build AMD64 Container
-        run: docker build --platform=linux/amd64 . --file Dockerfile --tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:windows
-
-      - name: Publish AMD64 Container
-        run: docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:windows
+        run: docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
