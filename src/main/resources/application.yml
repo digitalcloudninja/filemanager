@@ -36,11 +36,6 @@ spring:
         password: ${DATABASE_PASSWORD:ChangeMeNow!}
         url: jdbc:postgresql://${DATABASE_HOST:localhost}:${DATABASE_PORT:5432}/${DATABASE_NAME:postgres}
         username: ${DATABASE_USERNAME:postgres}
-    docker:
-        compose:
-            enabled: true
-            profiles:
-                active: default
     flyway:
         create-schemas: true
         default-schema: filemanager

@@ -1,12 +1,15 @@
 spring:
   cloud:
-    discovery:
-      enabled: ${DISCOVERY_ENABLED:true}
     config:
       discovery:
+        enabled: ${DISCOVERY_ENABLED:true}
         service-id: configuration
       name: filemanager
-      enabled: ${CONFIG_ENABLED:true}
+  docker:
+    compose:
+      profiles:
+        active: default
+      enabled: ${DOCKER_ENABLED:true}
 eureka:
   client:
     region: us-east-1
