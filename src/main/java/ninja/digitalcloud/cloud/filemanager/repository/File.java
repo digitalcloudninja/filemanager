@@ -35,9 +35,9 @@ public class File extends RepresentationModel<File> {
     private String name;
 
     @Column(name = "CONTENT_TYPE")
-    @JsonProperty(value = "content-type", index = 3)
-    @Schema(description = "The file's content-type.", example = "text/csv")
-    @Size(max = 50, message = "Invalid content-type.")
+    @JsonProperty(value = "type", index = 3)
+    @Schema(description = "The file's content type.", example = "text/csv")
+    @Size(max = 50, message = "Invalid content type.")
     private String contentType;
 
     @Column(name = "SIZE")

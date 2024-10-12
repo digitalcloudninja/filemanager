@@ -1,10 +1,12 @@
 spring:
   cloud:
+    discovery:
+      enabled: ${DISCOVERY_ENABLED:false}
     config:
       discovery:
-        enabled: true
         service-id: configuration
       name: filemanager
+      enabled: ${CONFIG_ENABLED:false}
 eureka:
   client:
     region: us-east-1
