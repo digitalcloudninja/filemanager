@@ -12,8 +12,14 @@ import io.swagger.v3.oas.annotations.security.SecuritySchemes;
 import io.swagger.v3.oas.annotations.servers.Server;
 import io.swagger.v3.oas.annotations.servers.ServerVariable;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.metamodel.Type;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
+import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
 @OpenAPIDefinition(
         info = @Info(
@@ -63,4 +69,18 @@ public class Main {
         SpringApplication.run(Main.class, args);
     }
 
+    @Configuration
+    public static class Config implements RepositoryRestConfigurer {
+
+        private final EntityManager entityManager;
+
+        public Config(EntityManager entityManager) {
+            this.entityManager = entityManager;
+        }
+
+        @Override
+        public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
+            config.exposeIdsFor(entityManager.getMetamodel().getEntities().stream().map(Type::getJavaType).toArray(Class[]::new));
+        }
+    }
 }
