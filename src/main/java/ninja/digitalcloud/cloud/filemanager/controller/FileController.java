@@ -28,7 +28,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.UUID;
 
-@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(path = "/filemanager", produces = {"application/json", "application/hal+json"})
 @Tag(name = "Files")
